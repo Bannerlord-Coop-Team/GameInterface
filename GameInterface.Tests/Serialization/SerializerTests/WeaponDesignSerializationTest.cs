@@ -63,7 +63,7 @@ namespace GameInterface.Tests.Serialization.SerializerTests
             };
 
             CraftingTemplate craftingTemplate = MBObjectManager.Instance.CreateObject<CraftingTemplate>();
-            typeof(CraftingTemplate).GetProperty("BuildOrders", BindingFlags.Instance | BindingFlags.Public).SetValue(craftingTemplate, buildOrders);
+            typeof(CraftingTemplate).GetProperty(nameof(CraftingTemplate.BuildOrders)).SetValue(craftingTemplate, buildOrders);
             WeaponDesign WeaponDesign = new WeaponDesign(craftingTemplate, new TextObject("testValue"), elements);
 
             BinaryPackageFactory factory = new BinaryPackageFactory();
