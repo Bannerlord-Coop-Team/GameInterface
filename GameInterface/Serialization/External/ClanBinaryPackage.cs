@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 using TaleWorlds.ObjectSystem;
 
 namespace GameInterface.Serialization.External
@@ -75,10 +76,10 @@ namespace GameInterface.Serialization.External
             }
 
             // Unpack special cases
-            Clan_supporterNotablesCache.SetValue(Object, ResolveIds<Hero>(supporterNotablesIds).ToList());
-            Clan_lordsCache.SetValue(Object, ResolveIds<Hero>(lordsIds).ToList());
-            Clan_heroesCache.SetValue(Object, ResolveIds<Hero>(heroesIds).ToList());
-            Clan_companionsCache.SetValue(Object, ResolveIds<Hero>(companionsIds).ToList());
+            Clan_supporterNotablesCache.SetValue(Object, ResolveIds<Hero>(supporterNotablesIds).ToMBList());
+            Clan_lordsCache.SetValue(Object, ResolveIds<Hero>(lordsIds).ToMBList());
+            Clan_heroesCache.SetValue(Object, ResolveIds<Hero>(heroesIds).ToMBList());
+            Clan_companionsCache.SetValue(Object, ResolveIds<Hero>(companionsIds).ToMBList());
         }
     }
 }
