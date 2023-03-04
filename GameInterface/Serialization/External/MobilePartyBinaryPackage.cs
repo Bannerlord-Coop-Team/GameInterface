@@ -41,18 +41,10 @@ namespace GameInterface.Serialization.External
             "_partyLastCheckIsPrisoner",
             "_lastCalculatedSpeed",
             "_partyPureSpeedLastCheckVersion",
-            "_lastTargetedParties",
-            "_partiesAroundPosition",
-            "_aiPathLastFace",
-            "_moveTargetAiFaceIndex",
-            "_targetAiFaceIndex",
             "_cachedPartySizeLimit",
             "_cachedPartySizeRatio",
             "_latestUsedPaymentRatio",
             "<VersionNo>k__BackingField",
-            "<Path>k__BackingField",
-            "<PathBegin>k__BackingField",
-            "<ForceAiNoPathMode>k__BackingField",
             "_errorPosition",
             "_currentNavigationFace",
             "_lastNavigationFace",
@@ -61,16 +53,13 @@ namespace GameInterface.Serialization.External
             "<Engineer>k__BackingField",
             "<Quartermaster>k__BackingField",
             "<Surgeon>k__BackingField",
-            "<MoveTargetParty>k__BackingField",
-            "<MoveTargetPoint>k__BackingField",
             "_targetParty",
             "_targetSettlement",
-            "_aiBehaviorMapEntity",
             // These are ignored as there is no way to resolve if
             // they already exist
             "_besiegerCamp",
             "_army",
-
+            "<ThinkParamsCache>k__BackingField",
         };
 
         protected override void PackInternal()
