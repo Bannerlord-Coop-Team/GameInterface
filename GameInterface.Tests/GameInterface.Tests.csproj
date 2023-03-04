@@ -163,7 +163,7 @@
     <Compile Include="Serialization\SerializerTests\PartyBaseSerializationTest.cs" />
     <Compile Include="Serialization\SerializerTests\WorkshopSerializationTest.cs" />
     <Compile Include="Serialization\SerializerTests\HeroDeveloperSerializationTest.cs" />
-    <Compile Include="Serialization\SerializerTests\PartyAISerializationTest.cs" />
+    <Compile Include="Serialization\SerializerTests\MobilePartyAISerializationTest.cs" />
     <Compile Include="Serialization\SerializerTests\CaravanPartyComponentSerializationTest.cs" />
     <Compile Include="Serialization\SerializerTests\SkeletonScaleSerializationTest.cs" />
     <Compile Include="Serialization\SerializerTests\MaterialPropertySerializationTest.cs" />

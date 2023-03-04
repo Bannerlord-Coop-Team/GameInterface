@@ -18,7 +18,6 @@ using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 using Xunit;
 using Xunit.Abstractions;
-using static TaleWorlds.CampaignSystem.Hero;
 
 namespace GameInterface.Tests.Serialization.SerializerTests
 {

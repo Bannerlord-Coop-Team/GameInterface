@@ -352,7 +352,7 @@
     <Compile Include="Serialization\External\WorkshopTypeBinaryPackage.cs" />
     <Compile Include="Serialization\External\WorkshopBinaryPackage.cs" />
     <Compile Include="Serialization\External\HeroDeveloperBinaryPackage.cs" />
-    <Compile Include="Serialization\External\PartyAIBinaryPackage.cs" />
+    <Compile Include="Serialization\External\MobilePartyAIBinaryPackage.cs" />
     <Compile Include="Serialization\External\CaravanPartyComponentBinaryPackage.cs" />
     <Compile Include="Serialization\External\PartyBaseBinaryPackage.cs" />
     <Compile Include="Serialization\External\CharacterObjectBinaryPackage.cs" />

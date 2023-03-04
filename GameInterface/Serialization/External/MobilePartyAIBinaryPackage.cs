@@ -10,16 +10,23 @@ namespace GameInterface.Serialization.External
     /// Binary package for PartyAI
     /// </summary>
     [Serializable]
-    public class PartyAIBinaryPackage : BinaryPackageBase<MobilePartyAi>
+    public class MobilePartyAIBinaryPackage : BinaryPackageBase<MobilePartyAi>
     {
-        public PartyAIBinaryPackage(MobilePartyAi obj, BinaryPackageFactory binaryPackageFactory) : base(obj, binaryPackageFactory)
+        public MobilePartyAIBinaryPackage(MobilePartyAi obj, BinaryPackageFactory binaryPackageFactory) : base(obj, binaryPackageFactory)
         {
         }
 
         private static readonly HashSet<string> excludes = new HashSet<string>
         {
-            "<DefaultBehaviorTarget>k__BackingField",
-            "<AiStateObject>k__BackingField",
+            "<MoveTargetParty>k__BackingField",
+            "<Path>k__BackingField",
+            "<ForceAiNoPathMode>k__BackingField",
+            "<AiBehaviorPartyBase>k__BackingField",
+            "_targetAiFaceIndex",
+            "_moveTargetAiFaceIndex",
+            "_aiPathLastFace",
+            "_lastTargetedParties",
+            "_aiBehaviorMapEntity",
         };
 
         protected override void PackInternal()
@@ -31,6 +38,7 @@ namespace GameInterface.Serialization.External
             }
         }
 
+        private static readonly FieldInfo MobilePartyAi_lastTargetedParties = typeof(MobilePartyAi).GetField("_lastTargetedParties", BindingFlags.NonPublic | BindingFlags.Instance);
         protected override void UnpackInternal()
         {
             TypedReference reference = __makeref(Object);
@@ -38,6 +46,8 @@ namespace GameInterface.Serialization.External
             {
                 field.SetValueDirect(reference, StoredFields[field].Unpack());
             }
+
+            MobilePartyAi_lastTargetedParties.SetValue(Object, new List<MobileParty>());
         }
     }
 }
