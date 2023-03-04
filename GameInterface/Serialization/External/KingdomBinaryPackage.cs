@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.ObjectSystem;
+using TaleWorlds.Library;
 
 namespace GameInterface.Serialization.External
 {
@@ -25,6 +26,8 @@ namespace GameInterface.Serialization.External
         public static readonly FieldInfo Kingdom_WarPartyComponents = typeof(Kingdom).GetField("_warPartyComponentsCache", BindingFlags.NonPublic | BindingFlags.Instance);
 
         private string stringId;
+        // No way to resolve armies at the moment
+        // private string[] armyIds;
         private string[] clanIds;
         private string[] fiefIds;
         private string[] heroIds;
@@ -47,13 +50,6 @@ namespace GameInterface.Serialization.External
             "_settlementsCache",
             "_villagesCache",
             "_fiefsCache",
-            "<Armies>k__BackingField",
-            "<Fiefs>k__BackingField",
-            "<Villages>k__BackingField",
-            "<Settlements>k__BackingField",
-            "<Heroes>k__BackingField",
-            "<Lords>k__BackingField",
-            "<WarPartyComponents>k__BackingField",
         };
 
         protected override void PackInternal()
@@ -66,6 +62,8 @@ namespace GameInterface.Serialization.External
                 StoredFields.Add(field, BinaryPackageFactory.GetBinaryPackage(obj));
             }
 
+            // No way to resolve armies at the moment
+            //armyIds = PackIds(Object.Armies);
             clanIds = PackIds(Object.Clans);
             fiefIds = PackIds(Object.Fiefs);
             heroIds = PackIds(Object.Heroes);
@@ -100,12 +98,14 @@ namespace GameInterface.Serialization.External
             // Cached WarPartyComponents are handed in the
             // BanditComponentBinaryPackage and LordPartyComponentBinaryPackage
 
-            Kingdom_Clans.SetValue(Object, ResolveIds<Clan>(clanIds).ToList());
-            Kingdom_Fiefs.SetValue(Object, ResolveIds<Town>(fiefIds).ToList());
-            Kingdom_Heroes.SetValue(Object, ResolveIds<Hero>(heroIds).ToList());
-            Kingdom_Lords.SetValue(Object, ResolveIds<Hero>(lordIds).ToList());
-            Kingdom_Settlements.SetValue(Object, ResolveIds<Settlement>(settlementIds).ToList());
-            Kingdom_Villages.SetValue(Object, ResolveIds<Village>(villageIds).ToList());
+            // No way to resolve armies at the moment
+            // Kingdom_Armies.SetValue(Object, ResolveIds<Army>(armyIds).ToMBList());
+            Kingdom_Clans.SetValue(Object, ResolveIds<Clan>(clanIds).ToMBList());
+            Kingdom_Fiefs.SetValue(Object, ResolveIds<Town>(fiefIds).ToMBList());
+            Kingdom_Heroes.SetValue(Object, ResolveIds<Hero>(heroIds).ToMBList());
+            Kingdom_Lords.SetValue(Object, ResolveIds<Hero>(lordIds).ToMBList());
+            Kingdom_Settlements.SetValue(Object, ResolveIds<Settlement>(settlementIds).ToMBList());
+            Kingdom_Villages.SetValue(Object, ResolveIds<Village>(villageIds).ToMBList());
         }
     }
 }
